@@ -64,15 +64,15 @@ if (!isset($target) or $target == "home") {
     if ($act == "tambah_pelaku") {
         echo $pelaku->tambah();
     } elseif ($act == "simpan_pelaku") {
-        if ($pelaku_umkm->simpan()) {
+        if ($pelaku->simpan()) {
             echo "<script>
                             alert('data sukses disimpan');
-                            window.location.href='?target=pelaku_umkm';
+                            window.location.href='?target=pelaku';
                         </script>";
         } else {
             echo "<script>
                             alert('data gagal disimpan');
-                            window.location.href='?target=pelaku_umkm';
+                            window.location.href='?target=pelaku';
                         </script>";
         }
     } elseif ($act == "edit_pelaku") {

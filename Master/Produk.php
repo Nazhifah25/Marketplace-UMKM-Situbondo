@@ -48,7 +48,7 @@ class Produk
     public function tambah()
     {
         $res = '<a href="?target=produk" class="btn btn-danger btn-sm">Kembali</a><br><br>';
-        $res .= '<form method="post" action="?target=produk&act=simpan_produk">
+        $res .= '<form method="post" action="?target=produk&act=simpan">
             <div class="mb-3">
                 <label for="id" class="form-label">Id</label>
                 <input type="text" class="form-control" id="id" name="id">
@@ -81,7 +81,7 @@ class Produk
         $item = $_POST['Item'];
 
         $data = array(
-            'Id' => $Id,
+            'Id' => $id,
             'Nama_produk' => $Nama_produk,
             'Harga' => $Harga,
             'Item' => $Item,
@@ -92,7 +92,7 @@ class Produk
     public function edit($id)
     {
         // get data produk
-        $r = $this->db->table('produk')->where("produk='$Id'")->get()->rowArray();
+        $r = $this->db->table('produk')->where("produk='$id'")->get()->rowArray();
         //cek radio
 
         $res = '<a href="?target=produk" class="btn btn-danger btn-sm">Kembali</a><br><br>';

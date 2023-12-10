@@ -6,7 +6,7 @@ class Menu
 {
     public function topMenu()
     {
-        $base = "http://localhost/Market/index.php?target=";
+        $base = "http://localhost/Marketplace-UMKM-Situbondo/index.php?target=";
         $data = [
             array('Text' => 'Home', 'Link' => $base . 'home'),
             array('Text' => 'Pelaku', 'Link' => $base . 'pelaku'),

@@ -13,8 +13,8 @@ class Pelaku
     }
     public function index()
     {
-        $data = $this->db->table('pelaku_umkm')->get()->resultArray();
-        $res = '<a href="?target=pelaku&act=tambah_pelaku_umkm" class="btn btn-info btn-sm">Tambah pelaku</a><br><br>
+        $data = $this->db->table('pelaku')->get()->resultArray();
+        $res = '<a href="?target=pelaku&act=tambah_pelaku" class="btn btn-info btn-sm">Tambah pelaku</a><br><br>
         <div class="table-responsive">
         <table class="table table-striped">
             <thead class="table-primary">
@@ -32,13 +32,13 @@ class Pelaku
         foreach ($data as $r) {
             $res .= '<tr>
                 <td width="10">' . $no . '</td>
-                <td width="10">' . $r['Id'] . '</td>
-                <td>' . $r['Nama_usaha'] . '</td>
-                <td>' . $r['Email'] . '</td>
-                <td width="10">' . $r['Alamat'] . '</td>
+                <td width="10">' . $r['id'] . '</td>
+                <td>' . $r['nama_usaha'] . '</td>
+                <td>' . $r['email'] . '</td>
+                <td width="10">' . $r['alamat'] . '</td>
                 <td width="150">
-                    <a href="?target=pelaku_umkm&act=edit_pelaku_umkm&id=' . $r['Id'] . '" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="?target=pelaku_umkm&act=delete_pelaku_umkm&id=' . $r['Id'] . '" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="?target=pelaku&act=edit_pelaku&id=' . $r['id'] . '" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="?target=pelaku&act=delete_pelaku&id=' . $r['id'] . '" class="btn btn-danger btn-sm">Hapus</a>
                 </td>';
             $no++;
         }
@@ -47,15 +47,15 @@ class Pelaku
     }
     public function tambah()
     {
-        $res = '<a href="?target=pelaku_umkm" class="btn btn-danger btn-sm">Kembali</a><br><br>';
-        $res .= '<form method="post" action="?target=pelaku_umkm&act=simpan_pelaku">
+        $res = '<a href="?target=pelaku" class="btn btn-danger btn-sm">Kembali</a><br><br>';
+        $res .= '<form method="post" action="?target=pelaku&act=simpan_pelaku">
             <div class="mb-3">
-                <label for="id_pelaku" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id_pelaku" name="id_pelaku">
+                <label for="id" class="form-label">Id</label>
+                <input type="text" class="form-control" id="id" name="id">
             </div>
             <div class="mb-3">
                 <label for="nama_usaha" class="form-label">Nama Usaha</label>
-                <input type="text" class="form-control" id="nama_usaha" name="id_pelaku">
+                <input type="text" class="form-control" id="nama_usaha" name="nama_usaha">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -84,20 +84,20 @@ class Pelaku
             'email' => $email,
             'alamat' => $alamat,
         );
-        return $this->db->table('pelaku_umkm')->insert($data);
+        return $this->db->table('pelaku')->insert($data);
     }
     public function edit($id)
     {
         // get data pelaku
-        $r = $this->db->table('pelaku_umkm')->where("id_pelaku='$id'")->get()->rowArray();
+        $r = $this->db->table('pelaku')->where("Id='$id'")->get()->rowArray();
         //cek radio
 
         $res = '<a href="?target=pelaku" class="btn btn-danger btn-sm">Kembali</a><br><br>';
         $res .= '<form method="post" action="?target=pelaku&act=update_pelaku">
-            <input type="hidden" class="form-control" id="param" name="param" value="' . $r['id_pelaku'] . '">
+            <input type="hidden" class="form-control" id="param" name="param" value="' . $r['id'] . '">
             <div class="mb-3">
-                <label for="id_pelaku" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id_pelaku" name="id_pelaku" value="' . $r['id_pelaku'] . '">
+                <label for="id" class="form-label">Id</label>
+                <input type="text" class="form-control" id="id" name="id" value="' . $r['id'] . '">
             </div>
             <div class="mb-3">
                 <label for="nama_usaha" class="form-label">Nama Usaha</label>
@@ -138,11 +138,11 @@ class Pelaku
             'email' => $email,
             'alamat' => $alamat,
         );
-        return $this->db->table('pelaku_umkm')->where("id='$param'")->update($data);
+        return $this->db->table('pelaku')->where("Id='$param'")->update($data);
     }
 
     public function delete($id)
     {
-        return $this->db->table('pelaku_umkm')->where("id_pelaku='$id'")->delete();
+        return $this->db->table('pelaku')->where("Id='$id'")->delete();
     }
 }

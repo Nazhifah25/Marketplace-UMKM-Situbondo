@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 09:25 AM
+-- Generation Time: Dec 10, 2023 at 10:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -24,6 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pelaku`
+--
+
+CREATE TABLE `pelaku` (
+  `id` int(11) NOT NULL,
+  `nama_usaha` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pelaku_umkm`
 --
 
@@ -34,6 +47,14 @@ CREATE TABLE `pelaku_umkm` (
   `Alamat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pelaku_umkm`
+--
+
+INSERT INTO `pelaku_umkm` (`Id`, `Nama_usaha`, `Email`, `Alamat`) VALUES
+(0, '', '', ''),
+(20, 'Toko Kuliner', 'tokul@gmail.com', 'Situbondo');
+
 -- --------------------------------------------------------
 
 --
@@ -41,11 +62,11 @@ CREATE TABLE `pelaku_umkm` (
 --
 
 CREATE TABLE `pelanggan` (
-  `Id` int(11) NOT NULL,
-  `Nama` varchar(50) NOT NULL,
-  `No. Telp` int(11) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Alamat` varchar(50) NOT NULL
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `no_telp` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -62,8 +83,21 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`Id`, `Nama_produk`, `Harga`, `Item`) VALUES
+(0, '', '0', 0);
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `pelaku`
+--
+ALTER TABLE `pelaku`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pelaku_umkm`
