@@ -6,12 +6,12 @@ class Menu
 {
     public function topMenu()
     {
-        $base = "http://localhost/uts/index.php?target=";
+        $base = "http://localhost/Market/index.php?target=";
         $data = [
             array('Text' => 'Home', 'Link' => $base . 'home'),
-            array('Text' => 'Pelaku UMKM', 'Link' => $base . 'pegawai'),
-            array('Text' => 'Pelanggan', 'Link' => $base . 'pengunjung'),
-            array('Text' => 'Produk', 'Link' => $base . 'profil'),
+            array('Text' => 'Pelaku', 'Link' => $base . 'pelaku'),
+            array('Text' => 'Pelanggan', 'Link' => $base . 'pelanggan'),
+            array('Text' => 'Produk', 'Link' => $base . 'produk'),
         ];
         return $data;
     }

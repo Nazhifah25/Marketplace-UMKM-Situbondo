@@ -3,5 +3,5 @@ $dataKoneksi = [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'belajaroop',
+    'dbname' => 'marketplace',
 ];
