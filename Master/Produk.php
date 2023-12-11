@@ -20,10 +20,10 @@ class Produk
             <thead class="table-primary">
                 <tr>
                     <th>No</th>
-                    <th>Id</th>
-                    <th>Nama Produk</th>
-                    <th>Harga</th>
-                    <th>Item</th>
+                    <th>id</th>
+                    <th>Nama_Produk</th>
+                    <th>harga</th>
+                    <th>item</th>
                     <th>Act</th>
                 </tr>
             </thead>
@@ -32,13 +32,13 @@ class Produk
         foreach ($data as $r) {
             $res .= '<tr>
                 <td width="10">' . $no . '</td>
-                <td>' . $r['Id'] . '</td>
-                <td>' . $r['Nama_produk'] . '</td>
-                <td>' . $r['Harga'] . '</td>
-                <td>' . $r['Item'] . '</td>
+                <td>' . $r['id'] . '</td>
+                <td>' . $r['nama_produk'] . '</td>
+                <td>' . $r['harga'] . '</td>
+                <td>' . $r['item'] . '</td>
                 <td width="150">
-                    <a href="?target=produk&act=edit_produk&id=' . $r['Id'] . '" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="?target=produk&act=delete_produk&id=' . $r['Id'] . '" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="?target=produk&act=edit_produk&id=' . $r['id'] . '" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="?target=produk&act=delete_produk&id=' . $r['id'] . '" class="btn btn-danger btn-sm">Hapus</a>
                 </td>';
             $no++;
         }
@@ -50,19 +50,19 @@ class Produk
         $res = '<a href="?target=produk" class="btn btn-danger btn-sm">Kembali</a><br><br>';
         $res .= '<form method="post" action="?target=produk&act=simpan">
             <div class="mb-3">
-                <label for="id" class="form-label">Id</label>
+                <label for="id" class="form-label">id</label>
                 <input type="text" class="form-control" id="id" name="id">
             </div>
             <div class="mb-3">
-                <label for="nama_produk" class="form-label">Nama Produk</label>
+                <label for="nama_produk" class="form-label">Nama_Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk">
             </div>
             <div class="mb-3">
-                <label for="harga" class="form-label">Harga</label>
+                <label for="harga" class="form-label">harga</label>
                 <input type="text" class="form-control" id="harga" name="harga">
             </div>
             <div class="mb-3">
-                <label for="item" class="form-label">Item</label>
+                <label for="item" class="form-label">item</label>
                 <input type="text" class="form-control" id="item" name="item">
             </div>
 
@@ -75,16 +75,16 @@ class Produk
 
     public function simpan()
     {
-        $Id = $_POST['Id'];
-        $nama_produk = $_POST['Nama_produk'];
-        $harga = $_POST['Harga'];
-        $item = $_POST['Item'];
+        $id = $_POST['id'];
+        $nama_produk = $_POST['nama_produk'];
+        $harga = $_POST['harga'];
+        $item = $_POST['item'];
 
         $data = array(
-            'Id' => $id,
-            'Nama_produk' => $Nama_produk,
-            'Harga' => $Harga,
-            'Item' => $Item,
+            'id' => $id,
+            'nama_produk' => $nama_produk,
+            'harga' => $harga,
+            'item' => $item,
 
         );
         return $this->db->table('produk')->insert($data);
@@ -97,23 +97,23 @@ class Produk
 
         $res = '<a href="?target=produk" class="btn btn-danger btn-sm">Kembali</a><br><br>';
         $res .= '<form method="post" action="?target=produk&act=update_produk">
-            <input type="hidden" class="form-control" id="param" name="param" value="' . $r['Id'] . '">
+            <input type="hidden" class="form-control" id="param" name="param" value="' . $r['id'] . '">
 
             <div class="mb-3">
-                <label for="id" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id" name="id" value="' . $r['Id'] . '">
+                <label for="id" class="form-label">id</label>
+                <input type="text" class="form-control" id="id" name="id" value="' . $r['id'] . '">
             </div>
             <div class="mb-3">
-                <label for="nama_produk" class="form-label">Nama Produk</label>
-                <input type="text" class="form-control" id="nama_roduk" name="nama_produk" value="' . $r['Nama_produk'] . '">
+                <label for="nama_produk" class="form-label">Nama_Produk</label>
+                <input type="text" class="form-control" id="nama_roduk" name="nama_produk" value="' . $r['nama_produk'] . '">
             </div>
             <div class="mb-3">
                 <label for="harga" class="form-label">harga</label>
-                <input type="text" class="form-control" id="harga" name="harga" value="' . $r['Harga'] . '">
+                <input type="text" class="form-control" id="harga" name="harga" value="' . $r['harga'] . '">
             </div>
             <div class="mb-3">
                 <label for="item" class="form-label">item</label>
-                <input type="text" class="form-control" id="item" name="item" value="' . $r['Item'] . '">
+                <input type="text" class="form-control" id="item" name="item" value="' . $r['item'] . '">
             </div>
 
 
@@ -133,22 +133,22 @@ class Produk
     public function update()
     {
         $param = $_POST['param'];
-        $Id = $_POST['Id'];
-        $Nama_produk = $_POST['Nama_produk'];
-        $Harga = $_POST['Harga'];
-        $Item = $_POST['Item'];
+        $id = $_POST['id'];
+        $nama_produk = $_POST['nama_produk'];
+        $harga = $_POST['harga'];
+        $item = $_POST['item'];
 
         $data = array(
-            'Id' => $id,
-            'Nama_produk' => $Nama_produk,
-            'Harga' => $Harga,
-            'Item' => $Item,
+            'id' => $id,
+            'nama_produk' => $nama_produk,
+            'harga' => $harga,
+            'item' => $item,
         );
-        return $this->db->table('produk')->where("Id='$param'")->update($data);
+        return $this->db->table('produk')->where("id='$param'")->update($data);
     }
 
-    public function delete($Id)
+    public function delete($id)
     {
-        return $this->db->table('produk')->where("Id='$Id'")->delete();
+        return $this->db->table('produk')->where("id='$id'")->delete();
     }
 }

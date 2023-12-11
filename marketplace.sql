@@ -76,10 +76,10 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `produk` (
-  `Id` int(11) NOT NULL,
-  `Nama_produk` varchar(50) NOT NULL,
-  `Harga` decimal(50,0) NOT NULL,
-  `Item` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `nama_produk` varchar(50) NOT NULL,
+  `harga` decimal(50,0) NOT NULL,
+  `item` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
